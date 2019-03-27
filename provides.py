@@ -30,6 +30,7 @@ class WebSSOFIDServiceProviderProvides(Endpoint):
     @when('endpoint.{endpoint_name}.changed')
     def changed(self):
         set_flag(self.expand_name('{endpoint_name}.available'))
+        clear_flag(self.expand_name('endpoint.{endpoint_name}.changed'))
 
     @when_any('endpoint.{endpoint_name}.broken',
               'endpoint.{endpoint_name}.departed')
